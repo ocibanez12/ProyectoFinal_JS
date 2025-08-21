@@ -131,10 +131,3 @@ VITE_API_URL=http://localhost:3000
 4. **Registrar usuario** en la aplicación
 5. **Probar funcionalidades** del carrito y favoritos
 
-## 📞 Soporte
-
-Si encuentras problemas:
-1. Revisa los logs del backend
-2. Revisa la consola del navegador
-3. Verifica la configuración de la base de datos
-4. Consulta los archivos SETUP.md en cada carpeta
