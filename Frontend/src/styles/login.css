@@ -1,0 +1,94 @@
+/* Contenedor general */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 60px);
+}
+
+/* Imagen arriba */
+.login-left {
+    height: 200px;
+    background-image: url("https://i.postimg.cc/Rhtvst1q/Minimalist-Chinese-Clouds-Pattern-Square-Pillow.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Formulario debajo */
+.login-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f7f7f7;
+    padding: 1.5rem;
+}
+
+.login-form {
+    width: 100%;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 1.2rem;
+    color: #10846f;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #10846f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.btn-login:hover {
+    background-color: #0d6f5d;
+}
+
+/* --- DESKTOP --- */
+@media (min-width: 768px) {
+    .login-container {
+        flex-direction: row;
+        /* Imagen y formulario lado a lado */
+    }
+
+    .login-left {
+        flex: 1;
+        height: auto;
+    }
+
+    .login-right {
+        flex: 1;
+        align-items: center;
+    }
+
+    .login-form {
+        max-width: 400px;
+    }
+}

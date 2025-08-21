@@ -1,0 +1,17 @@
+.edit-container {
+    padding: 7rem 2rem 2rem 2rem;
+}
+
+.edit-container form {
+    justify-content: center;
+
+
+}
+
+
+
+@media (min-width: 768px) {
+    .edit-container {
+        padding: 10rem;
+    }
+}

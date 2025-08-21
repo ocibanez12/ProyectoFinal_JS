@@ -1,0 +1,22 @@
+.misprod-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 1rem 0 1rem;
+
+}
+
+
+/* Botones ocupando todo el ancho */
+.mis-productos-container .card-body .btn {
+    flex: 1;
+    margin: 0 3px;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+    .misprod-container {
+        padding-top: 8rem;
+        min-height: 80vh;
+    }
+}

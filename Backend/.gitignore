@@ -1,0 +1,12 @@
+# Ignorar todo por defecto en la raíz
+/*
+!.gitignore
+!README.md
+!api/
+!db/
+!.env
+
+# Ignorar node_modules en cualquier lugar
+node_modules
+api/node_modules
+db/node_modules
