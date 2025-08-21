@@ -1,4 +1,3 @@
--- Esquema TCGMoon (solo tablas). Ejecutar contra la base ya seleccionada.
 
 CREATE TABLE IF NOT EXISTS usuarios (
     id SERIAL PRIMARY KEY,
