@@ -41,9 +41,14 @@ const UserProvider = ({ children }) => {
       const client = axios.create({ baseURL });
       const { data } = await client.post("/api/usuarios/login", { email, password });
       const usuario = data?.usuario || null;
-      if (!usuario || !usuario.id) throw new Error("Respuesta inválida del servidor");
+      const token = data?.token;
+      
+      if (!usuario || !usuario.id || !token) throw new Error("Respuesta inválida del servidor");
+      
       setUser(usuario);
       localStorage.setItem("usuario", JSON.stringify(usuario));
+      localStorage.setItem("token", token);
+      
       return true;
     } catch (err) {
       const msg = err?.response?.data?.message || err?.response?.data?.error || "Usuario o contraseña incorrectos";
@@ -56,6 +61,7 @@ const UserProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     localStorage.removeItem("usuario");
+    localStorage.removeItem("token");
   };
 
   // Actualizar usuario en backend (por ejemplo, password, nombre, apellido)

@@ -1,5 +1,6 @@
 import { aHateoasColeccion, aHateoasRecurso } from '../helpers/hateoas.js';
 import { hashearContrasena, verificarContrasena } from '../helpers/crypto.js';
+import { generateToken } from '../config/jwt.js';
 import {
   crearUsuario,
   buscarUsuarioPorEmail,
@@ -76,14 +77,24 @@ export async function login(req, res, next) {
   try {
     const { email, password } = req.body || {};
     if (!email || !password) throw Object.assign(new Error('email y password requeridos'), { status: 400 });
+    
     const usuario = await buscarUsuarioPorEmail(email);
     if (!usuario) throw Object.assign(new Error('Credenciales inválidas'), { status: 401 });
+    
     const ok = await verificarContrasena(password, usuario.password);
     if (!ok) throw Object.assign(new Error('Credenciales inválidas'), { status: 401 });
-    const seguro = { id: usuario.id, nombre: usuario.nombre, apellido: usuario.apellido, email: usuario.email, fecha_creacion: usuario.fecha_creacion };
-    res.json({ usuario: aHateoasRecurso(req, 'usuarios', seguro) });
+    
+    const token = generateToken({ id: usuario.id, email: usuario.email });
+    const seguro = { id: usuario.id, nombre: usuario.nombre, apellido: usuario.apellido, email: usuario.email };
+    
+    res.json({ 
+      usuario: aHateoasRecurso(req, 'usuarios', seguro),
+      token
+    });
   } catch (err) {
     next(err);
   }
 }
+
+
 
