@@ -1,4 +1,4 @@
-// Configuración del servidor con valores por defecto
+
 export const serverConfig = {
   port: process.env.PORT || 3000,
   cors: {

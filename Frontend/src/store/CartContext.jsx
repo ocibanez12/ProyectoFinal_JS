@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "./UserContext";
+import { baseURL } from "../config/constant.js";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const CartContext = createContext();
@@ -18,7 +19,6 @@ const CartProvider = ({ children }) => {
         return;
       }
       try {
-        const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
         console.log('Intentando cargar carrito desde:', baseURL);
         const client = axios.create({ baseURL });
         const { data } = await client.get('/api/carrito', { params: { usuario_id: user.id, pagina: 1, tamanoPagina: 100 } });
@@ -49,7 +49,6 @@ const CartProvider = ({ children }) => {
       return;
     }
     try {
-      const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
       console.log('Agregando al carrito:', producto);
       const client = axios.create({ baseURL });
       await client.post('/api/carrito', { usuario_id: user.id, producto_id: producto.id, cantidad: 1 });
@@ -75,7 +74,6 @@ const CartProvider = ({ children }) => {
   const removeFromCart = async (id) => {
     if (!user?.id) return;
     try {
-      const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
       const client = axios.create({ baseURL });
       await client.delete('/api/carrito/item', { data: { usuario_id: user.id, producto_id: id } });
       
@@ -103,7 +101,6 @@ const CartProvider = ({ children }) => {
       return;
     }
     try {
-      const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
       const client = axios.create({ baseURL });
       await client.patch('/api/carrito', { usuario_id: user.id, producto_id: id, cantidad });
       
@@ -136,7 +133,6 @@ const CartProvider = ({ children }) => {
     }
     
     try {
-      const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
       console.log('Finalizando compra para usuario:', user.id);
       const client = axios.create({ baseURL });
       

@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { UserContext } from './UserContext';
+import { baseURL } from '../config/constant.js';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const FavoritoContext = createContext();
@@ -17,7 +18,6 @@ const FavoritoProvider = ({ children }) => {
         return;
       }
       try {
-        const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
         const client = axios.create({ baseURL });
         const { data } = await client.get('/api/favoritos', { params: { usuario_id: user.id, pagina: 1, tamanoPagina: 100 } });
         const items = Array.isArray(data?.items) ? data.items : [];
@@ -40,7 +40,6 @@ const FavoritoProvider = ({ children }) => {
   const agregarFavorito = async (producto) => {
     if (!user?.id) return;
     try {
-      const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
       const client = axios.create({ baseURL });
       await client.post('/api/favoritos', { usuario_id: user.id, producto_id: producto.id });
       setFavoritos(prev => {
@@ -55,7 +54,6 @@ const FavoritoProvider = ({ children }) => {
   const eliminarFavorito = async (productoId) => {
     if (!user?.id) return;
     try {
-      const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
       const client = axios.create({ baseURL });
       await client.delete('/api/favoritos', { data: { usuario_id: user.id, producto_id: productoId } });
     } catch (err) {

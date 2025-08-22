@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import { SyncLoader } from 'react-spinners';
 import axios from 'axios';
 import { productos as productosMock } from '../components/productos';
+import { baseURL } from '../config/constant.js';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ProductContext = createContext();
@@ -14,7 +15,6 @@ export const ProductProvider = ({ children }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
         const client = axios.create({ baseURL });
         const { data } = await client.get('/api/productos', { params: { pagina: 1, tamanoPagina: 50 } });
         const items = Array.isArray(data?.items) ? data.items : [];
@@ -41,7 +41,6 @@ export const ProductProvider = ({ children }) => {
   }, []);
 
   const addProduct = async (nuevoProducto) => {
-    const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
     const client = axios.create({ baseURL });
     const payload = {
       nombre: nuevoProducto.nombre,
@@ -75,7 +74,6 @@ export const ProductProvider = ({ children }) => {
   };
 
   const updateProduct = async (productoEditado) => {
-    const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
     const client = axios.create({ baseURL });
     const payload = {
       nombre: productoEditado.nombre,
@@ -119,7 +117,6 @@ export const ProductProvider = ({ children }) => {
 
 
   const removeProduct = async (id) => {
-    const baseURL = import.meta.env.VITE_API_URL || '';
     const client = axios.create({ baseURL });
     try {
       await client.delete(`/api/productos/${id}`);

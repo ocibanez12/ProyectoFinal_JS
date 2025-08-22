@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { baseURL } from "../config/constant.js";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const UserContext = createContext();
@@ -23,7 +24,6 @@ const UserProvider = ({ children }) => {
   const registerUser = async ({ nombre, apellido, email, password }) => {
     setError(null);
     try {
-      const baseURL = import.meta.env.VITE_API_URL || "http://localhost:3000";
       const client = axios.create({ baseURL });
       await client.post("/api/usuarios", { nombre, apellido, email, password });
       return { success: true };
@@ -38,7 +38,6 @@ const UserProvider = ({ children }) => {
   const authLogin = async (email, password) => {
     setError(null);
     try {
-      const baseURL = import.meta.env.VITE_API_URL || "http://localhost:3000";
       const client = axios.create({ baseURL });
       const { data } = await client.post("/api/usuarios/login", { email, password });
       const usuario = data?.usuario || null;
@@ -63,7 +62,6 @@ const UserProvider = ({ children }) => {
   const updateUser = async (partial) => {
     if (!user?.id) return false;
     try {
-      const baseURL = import.meta.env.VITE_API_URL || "http://localhost:3000";
       const client = axios.create({ baseURL });
       const { data } = await client.patch(`/api/usuarios/${user.id}`, partial);
       const actualizado = data || {};
