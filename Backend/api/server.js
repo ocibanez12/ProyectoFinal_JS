@@ -1,9 +1,9 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import { serverConfig } from './config/server.js';
+import { serverConfig } from './src/config/server.js';
 
-import { enrutador } from './routes/index.js';
+import { enrutador } from './src/routes/index.js';
 
 const app = express();
 
