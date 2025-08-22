@@ -1,9 +1,9 @@
-import 'dotenv/config';
-import express from 'express';
-import cors from 'cors';
-import { serverConfig } from './src/config/server.js';
+require('dotenv/config');
+const express = require('express');
+const cors = require('cors');
+const { serverConfig } = require('./src/config/server.js');
 
-import { enrutador } from './src/routes/index.js';
+const { enrutador } = require('./src/routes/index.js');
 
 const app = express();
 
@@ -26,9 +26,14 @@ app.get('/', (req, res) => {
 
 app.use('/api', enrutador);
 
-const PORT = serverConfig.port;
-app.listen(PORT, () => {
-  console.log(`TCGMoon API running on http://localhost:${PORT}`);
-  console.log(`CORS configurado para: ${serverConfig.cors.origin}`);
-});
+// Solo iniciar el servidor si no estamos en modo test
+if (process.env.NODE_ENV !== 'test') {
+  const PORT = serverConfig.port;
+  app.listen(PORT, () => {
+    console.log(`TCGMoon API running on http://localhost:${PORT}`);
+    console.log(`CORS configurado para: ${serverConfig.cors.origin}`);
+  });
+}
+
+module.exports = app;
 
