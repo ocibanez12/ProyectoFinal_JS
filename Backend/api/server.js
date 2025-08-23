@@ -1,9 +1,9 @@
-require('dotenv/config');
-const express = require('express');
-const cors = require('cors');
-const { serverConfig } = require('./src/config/server.js');
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import { serverConfig } from './src/config/server.js';
 
-const { enrutador } = require('./src/routes/index.js');
+import { enrutador } from './src/routes/index.js';
 
 const app = express();
 
@@ -35,5 +35,5 @@ if (process.env.NODE_ENV !== 'test') {
   });
 }
 
-module.exports = app;
+export default app;
 
