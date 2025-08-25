@@ -1,7 +1,7 @@
 # 🎴 TCGMoon - Proyecto Final
 
 > **E-commerce de cartas Pokémon y trading card games**  
-> Desarrollado con React, Node.js y PostgreSQL
+> Desarrollado con React, Node.js y PostgreSQL - **¡Ya desplegado y funcionando online!**
 
 ## 📋 ¿Qué es TCGMoon?
 
@@ -29,52 +29,20 @@ TCGMoon es una tienda online especializada en cartas de Pokémon y otros juegos 
 - Ordenar por precio
 - Crear nuevos productos
 
-## 🚀 Cómo usar la aplicación
-
-### 1. **Instalar dependencias**
-```bash
-# Backend
-cd Backend/api
-npm install
-
-# Frontend  
-cd Frontend
-npm install
-```
-
-### 2. **Configurar base de datos**
-```sql
-CREATE DATABASE tcgmoon;
-```
-
-### 3. **Ejecutar la aplicación**
-```bash
-# Terminal 1 - Backend
-cd Backend/api
-npm run dev
-
-# Terminal 2 - Frontend
-cd Frontend
-npm run dev
-```
-
-### 4. **Abrir en el navegador**
-- Frontend: http://localhost:5173
-- Backend: http://localhost:3000
-
 ## 🛠️ Tecnologías utilizadas
 
 - **Frontend**: React, Vite, Bootstrap
 - **Backend**: Node.js, Express
 - **Base de datos**: PostgreSQL
 - **Estado**: Context API
+- **Despliegue**: Render/Supabase/Vercel
 
 ## 📁 Estructura del proyecto
 
 ```
 ProyectoFinal_JS/
-├── Backend/api/          # Servidor y API
-├── Frontend/             # Aplicación web
+├── Backend/api/          # Servidor y API (desplegado)
+├── Frontend/             # Aplicación web (desplegada)
 └── README.md
 ```
 
@@ -88,40 +56,23 @@ ProyectoFinal_JS/
 - ✅ Perfil de usuario
 - ✅ Diseño responsive
 
-## 🚨 Problemas comunes
+## 🎯 **Próximos pasos para usar la aplicación**
 
-**El carrito no funciona:**
-- Verifica que estés logueado
-- Asegúrate de que el backend esté corriendo
-
-**Error de base de datos:**
-- Verifica que PostgreSQL esté activo
-- Confirma que la base de datos `tcgmoon` exista
-
-## 📝 Variables de entorno
-
-### Backend (.env)
-```env
-PORT=3000
-DB_HOST=localhost
-DB_USER=postgres
-DB_PASSWORD=tu_password
-DB_DATABASE=tcgmoon
-```
-
-### Frontend (.env)
-```env
-VITE_API_URL=http://localhost:3000
-```
-
-## 🎯 Próximos pasos
-
-1. Ejecutar `npm run init-db` en el backend
-2. Iniciar backend y frontend
-3. Crear una cuenta de usuario
-4. Probar todas las funcionalidades
+1. **🌐 Abrir la aplicación** en tu navegador
+2. **👤 Crear una cuenta** de usuario
+3. **🔐 Iniciar sesión** con tus credenciales
+4. **🛍️ Explorar productos** y funcionalidades
+5. **❤️ Probar favoritos** y carrito de compras
 
 ---
 
-**Desarrollado como Proyecto Final de Desarrollo Web** 🚀
+## 🚀 **Estado del Proyecto: DESPLEGADO Y FUNCIONANDO**
+
+**✅ Frontend:** Desplegado y accesible online  
+**✅ Backend:** API funcionando en la nube  
+**✅ Base de datos:** Conectada y operativa  
+
+---
+
+**Desarrollado como Proyecto Final de Desarrollo Web** 🎉
 
