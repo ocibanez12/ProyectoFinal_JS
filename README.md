@@ -1,119 +1,112 @@
-# TCGMoon - Proyecto Final
+# 🎴 TCGMoon - Proyecto Final
 
-Sistema de comercio electrónico para cartas de trading card games (TCG) con funcionalidades de carrito, favoritos y gestión de productos.
+> **E-commerce de cartas Pokémon y trading card games**  
+> Desarrollado con React, Node.js y PostgreSQL
 
-## 🚀 Configuración Rápida
+## 📋 ¿Qué es TCGMoon?
 
-### 1. Requisitos Previos
-- **PostgreSQL** instalado y ejecutándose
-- **Node.js** versión 16 o superior
-- **npm** o **yarn**
+TCGMoon es una tienda online especializada en cartas de Pokémon y otros juegos de cartas coleccionables. Los usuarios pueden comprar, vender y gestionar productos relacionados con trading card games.
 
-### 2. Configurar Base de Datos
+## ✨ ¿Qué hace la aplicación?
+
+### 🛒 **Carrito de Compras**
+- Agregar productos al carrito
+- Ver el total de la compra
+- Eliminar productos
+
+### ❤️ **Favoritos**
+- Guardar productos que te gustan
+- Ver tu lista de favoritos
+
+### 👤 **Usuarios**
+- Registrarte e iniciar sesión
+- Ver tu perfil
+- Crear y vender tus propios productos
+
+### 📦 **Productos**
+- Ver catálogo completo
+- Filtrar por tipo (Cartas, Mazos, Packs)
+- Ordenar por precio
+- Crear nuevos productos
+
+## 🚀 Cómo usar la aplicación
+
+### 1. **Instalar dependencias**
+```bash
+# Backend
+cd Backend/api
+npm install
+
+# Frontend  
+cd Frontend
+npm install
+```
+
+### 2. **Configurar base de datos**
 ```sql
 CREATE DATABASE tcgmoon;
 ```
 
-### 3. Configurar Backend
+### 3. **Ejecutar la aplicación**
 ```bash
+# Terminal 1 - Backend
 cd Backend/api
-npm install
-npm run init-db
 npm run dev
-```
 
-### 4. Configurar Frontend
-```bash
+# Terminal 2 - Frontend
 cd Frontend
-npm install
 npm run dev
 ```
 
-## 📁 Estructura del Proyecto
+### 4. **Abrir en el navegador**
+- Frontend: http://localhost:5173
+- Backend: http://localhost:3000
+
+## 🛠️ Tecnologías utilizadas
+
+- **Frontend**: React, Vite, Bootstrap
+- **Backend**: Node.js, Express
+- **Base de datos**: PostgreSQL
+- **Estado**: Context API
+
+## 📁 Estructura del proyecto
 
 ```
-Proyecto_Final1/
-├── Backend/
-│   └── api/
-│       ├── src/
-│       │   ├── controllers/     # Controladores de la API
-│       │   ├── models/          # Modelos de datos
-│       │   ├── routes/          # Rutas de la API
-│       │   ├── db/              # Configuración de base de datos
-│       │   └── config/          # Configuraciones del servidor
-│       └── SETUP.md             # Instrucciones del backend
-├── Frontend/
-│   ├── src/
-│   │   ├── components/          # Componentes reutilizables
-│   │   ├── pages/               # Páginas de la aplicación
-│   │   ├── store/               # Contextos de estado
-│   │   └── styles/              # Estilos CSS
-│   └── SETUP.md                 # Instrucciones del frontend
-└── README.md                    # Este archivo
+ProyectoFinal_JS/
+├── Backend/api/          # Servidor y API
+├── Frontend/             # Aplicación web
+└── README.md
 ```
 
-## 🔧 Funcionalidades Principales
+## 🔧 Funcionalidades principales
 
-### 🛒 Carrito de Compras
-- Agregar productos al carrito
-- Modificar cantidades
-- Eliminar productos
-- Cálculo automático del total
-- Persistencia en base de datos
+- ✅ Registro e inicio de sesión
+- ✅ Catálogo de productos con filtros
+- ✅ Carrito de compras funcional
+- ✅ Sistema de favoritos
+- ✅ Crear y editar productos
+- ✅ Perfil de usuario
+- ✅ Diseño responsive
 
-### ❤️ Sistema de Favoritos
-- Agregar productos a favoritos
-- Lista de productos favoritos
-- Persistencia en base de datos
+## 🚨 Problemas comunes
 
-### 👤 Gestión de Usuarios
-- Registro de usuarios
-- Inicio de sesión
-- Perfil de usuario
-- Gestión de productos del usuario
+**El carrito no funciona:**
+- Verifica que estés logueado
+- Asegúrate de que el backend esté corriendo
 
-### 📦 Gestión de Productos
-- Lista de productos
-- Filtros por tipo
-- Ordenamiento por precio
-- Detalles de productos
-- Crear y editar productos
+**Error de base de datos:**
+- Verifica que PostgreSQL esté activo
+- Confirma que la base de datos `tcgmoon` exista
 
-## 🌐 Endpoints de la API
-
-- **Usuarios**: `/api/usuarios`
-- **Productos**: `/api/productos`
-- **Carrito**: `/api/carrito`
-- **Favoritos**: `/api/favoritos`
-
-## 🚨 Solución de Problemas Comunes
-
-### El carrito no funciona
-1. Verifica que estés logueado
-2. Verifica que el backend esté ejecutándose en puerto 3000
-3. Verifica que la base de datos esté configurada
-4. Revisa la consola del navegador para errores
-
-### Error de conexión a base de datos
-1. Verifica que PostgreSQL esté ejecutándose
-2. Verifica que la base de datos `tcgmoon` exista
-3. Verifica las credenciales (por defecto: postgres/postgres)
-
-### Error de CORS
-1. Verifica que el backend esté configurado correctamente
-2. Asegúrate de que el frontend esté en puerto 5173
-
-## 📝 Variables de Entorno
+## 📝 Variables de entorno
 
 ### Backend (.env)
 ```env
 PORT=3000
 DB_HOST=localhost
-DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=tu_password
 DB_DATABASE=tcgmoon
-CORS_ORIGIN=http://localhost:5173
 ```
 
 ### Frontend (.env)
@@ -121,13 +114,14 @@ CORS_ORIGIN=http://localhost:5173
 VITE_API_URL=http://localhost:3000
 ```
 
-**Nota**: Si no creas los archivos .env, se usarán los valores por defecto.
+## 🎯 Próximos pasos
 
-## 🎯 Próximos Pasos
+1. Ejecutar `npm run init-db` en el backend
+2. Iniciar backend y frontend
+3. Crear una cuenta de usuario
+4. Probar todas las funcionalidades
 
-1. **Configurar base de datos** con `npm run init-db`
-2. **Ejecutar backend** con `npm run dev`
-3. **Ejecutar frontend** con `npm run dev`
-4. **Registrar usuario** en la aplicación
-5. **Probar funcionalidades** del carrito y favoritos
+---
+
+**Desarrollado como Proyecto Final de Desarrollo Web** 🚀
 
